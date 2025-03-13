@@ -144,3 +144,4 @@ mysql> select * from Customer wherE NAME LIKE "_y%";
 +-------+-------+---------+---------+------------+
 1 row in set (0.00 sec)
 
+//VERIFIED
