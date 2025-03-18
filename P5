@@ -58,7 +58,7 @@ mysql> select * from Product where pid in (select pid from Invoice_item where in
 
 6. List the names of all customers who have purchased at least 2 products, make sure that no duplicate names in the result.
 
-select name from Customer where id in(select cus_id from Invoice_master where inv_id in (select inv_id from Invoice_item group by inv_id having count(inv_id>=2)));
+select distinct name from Customer where id in(select cus_id from Invoice_master where inv_id in (select inv_id from Invoice_item group by inv_id having count(inv_id)>=2));
 
 +-------+
 | name  |
