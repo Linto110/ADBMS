@@ -22,7 +22,7 @@ mysql> select pname from Product where pid in(select pid from Invoice_item where
 | soap  |
 | plate |
 +-------+
-
+//VERIFIED
 3. Find the product that has no sale.
 mysql> select pname from Product where pid not in (select pid from Invoice_item);
 +-------+
