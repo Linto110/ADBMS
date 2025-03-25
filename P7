@@ -13,7 +13,7 @@ mysql> select P.pname,II.quantity from Invoice_item II inner join Product P on P
 +-------+----------+
 6 rows in set (0.00 sec) 
 
-2.    Display invoice details of the transaction dated ’31-01-2022’. 
+2.    Display invoice details of the transaction dated ’29-03-2023’. 
 
 mysql> select * from Invoice_master IM join Invoice_item II on IM.inv_id=II.inv_id where inv_date='2023-03-29';
 +--------+--------+------------+--------+------+----------+
@@ -53,7 +53,7 @@ mysql> select C.id,C.name,IM.inv_id,IM.inv_date from Customer C left join Invoic
 
 OPTIMIZING DATABASE: (Using Set, arithmetic, logical and special operators)
 
-1.Display customer_id, city  who lives either in ‘Pala’ or in ‘TVM’
+1.Display customer_id, city  who lives either in ‘Pala’ or in ‘calicut’
 
 mysql> select name,city from Customer where city='pala' or city='calicut';
 +-------+---------+
