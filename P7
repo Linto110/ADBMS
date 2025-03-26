@@ -97,3 +97,4 @@ mysql> select pname from Product P where exists(select pid from Invoice_item II 
 | plate |
 +-------+
 2 rows in set (0.00 sec)
+//VERIFIED
