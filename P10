@@ -1,0 +1,72 @@
+1.Create a trigger to handle updates to the customer table.
+mysql> delimiter $
+mysql> create trigger cust_trigger
+    -> after update on Customer
+    -> for each row begin
+    -> insert into cust set id=new.id,name=new.name,address=new.address,city=new.city,ph_no=new.ph_no;
+    -> end $
+Query OK, 0 rows affected (0.01 sec)
+
+mysql> select * from Customer;
++-------+-------+------------+---------+------------+
+| id    | name  | address    | city    | ph_no      |
++-------+-------+------------+---------+------------+
+| 10002 | linto | parathodu  | tvm     | 7676672200 |
+| 10003 | aysha | thiruva    | calicut | 5367892200 |
+| 10004 | nihal | thiruva    | pala    | 9875922008 |
+| 10005 | ami   | thiruva    | tvm     | 6789543654 |
+| 10006 | jesse | kariyathum | calicut | 9867589404 |
++-------+-------+------------+---------+------------+
+5 rows in set (0.00 sec)
+
+mysql> update Customer set name='roshan' where id=10002;
+Query OK, 1 row affected (0.00 sec)
+Rows matched: 1  Changed: 1  Warnings: 0
+
+mysql> select * from cust; 
+
++-------+--------+-----------+------+------------+
+| id    | name   | address   | city | ph_no      |
++-------+--------+-----------+------+------------+
+| 10002 | roshan | parathodu | tvm  | 7676672200 |
++-------+--------+-----------+------+------------+
+1 row in set (0.00 sec)
+
+mysql> select * from Customer;
+
++-------+--------+------------+---------+------------+
+| id    | name   | address    | city    | ph_no      |
++-------+--------+------------+---------+------------+
+| 10002 | roshan | parathodu  | tvm     | 7676672200 |
+| 10003 | aysha  | thiruva    | calicut | 5367892200 |
+| 10004 | nihal  | thiruva    | pala    | 9875922008 |
+| 10005 | ami    | thiruva    | tvm     | 6789543654 |
+| 10006 | jesse  | kariyathum | calicut | 9867589404 |
++-------+--------+------------+---------+------------+
+5 rows in set (0.00 sec)
+
+
+2.Create a trigger to handle inserts to the product relation ( if price < 5 the set price to 10).
+
+mysql> delimiter $
+mysql> create trigger new_p
+    -> before insert on Product for each row begin
+    -> if new.price<5 then set new.price=10;
+    -> end if;
+    ->     end $
+Query OK, 0 rows affected (0.00 sec)
+
+mysql> insert into Product values(205,'eraser',4);
+Query OK, 1 row affected (0.00 sec)
+
+mysql> select * from Product;
++-----+--------+-------+
+| pid | pname  | price |
++-----+--------+-------+
+| 201 | pen    | 10.20 |
+| 202 | soap   | 30.60 |
+| 203 | plate  | 91.80 |
+| 204 | scale  |  5.00 |
+| 205 | eraser | 10.00 |
++-----+--------+-------+
+5 rows in set (0.00 sec)
