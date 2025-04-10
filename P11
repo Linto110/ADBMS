@@ -31,3 +31,4 @@ mysql> select @name_list;
 | jesse;ami;nihal;aysha;roshan; |
 +-------------------------------+
 1 row in set (0.00 sec)
+//VERIFIED
