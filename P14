@@ -57,3 +57,4 @@ INVOICE> db.CUSTOMER.aggregate([{$lookup:{from:"PRODUCT",localField:"id",foreign
 ]
 
 
+//VERIFIED
