@@ -40,3 +40,4 @@ INVOICE> db.CUSTOMER.find({city:{$ne:'TVM'}})
     ph_no: 7865789004
   }
 ]
+//VERIFIED
