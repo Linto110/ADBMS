@@ -42,3 +42,7 @@ C:\Program Files\MongoDB\Server\8.0\bin>mongorestore --db=INVOICE --drop "D:\sem
 
 INVOICE> db.CUSTOMER.createIndex({name:1})
 name_1
+
+//RESUBMIT
+
+SHOW INDEX
